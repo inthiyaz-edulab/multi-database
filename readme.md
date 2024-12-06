@@ -65,8 +65,8 @@ frontend/
 └── package.json               # Frontend dependencies
 
 
-## Getting Started
-1. Backend Setup
+# Getting Started
+## 1. Backend Setup
 ### Prerequisites
 - Node.js (v14+)
 - PostgreSQL (v12+)
@@ -95,3 +95,21 @@ PORT=5000
 
 ```npm start
 6. The backend will run at `http://localhost:5000`
+
+## Frontend Setup
+### Prerequisites
+- Node.js (v14+)
+### Steps
+1. Navigate to the frontend directory:
+
+```cd frontend
+2. Install dependencies:
+
+```npm install
+3. Create a .env file in the frontend directory and add the following:
+
+```REACT_APP_API_URL=http://localhost:5000/api
+4. Start the frontend development server:
+
+```npm start
+5. The frontend will run at http://localhost:3000.
