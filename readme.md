@@ -86,7 +86,8 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=<your_main_database_name>
 JWT_SECRET=<your_jwt_secret>
-PORT=5000```
+PORT=5000
+
 4. Start the PostgreSQL server and create the main database (if not already created):
 
 `CREATE DATABASE <your_main_database_name>;`
