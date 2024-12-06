@@ -1,93 +1,4 @@
-
-
-// const { Pool } = require('pg');
-// const pool = require('../config/db'); // Main database connection
-
-// // Function to validate database names
-// const validateDatabaseName = (dbName) => /^[a-zA-Z_][a-zA-Z0-9_]*$/.test(dbName);
-
-// // Function to create a new database
-// const createDatabase = async (req, res) => {
-//   const { dbName } = req.body;
-
-//   try {
-//     // Validate database name
-//     if (!validateDatabaseName(dbName)) {
-//       return res.status(400).json({ error: 'Invalid database name' });
-//     }
-
-//     // Check if the database already exists for the user
-//     const existingDb = await pool.query(
-//       'SELECT * FROM user_databases WHERE user_id = $1 AND db_name = $2',
-//       [req.user.id, dbName]
-//     );
-//     if (existingDb.rows.length > 0) {
-//       return res.status(400).json({ error: `Database "${dbName}" already exists` });
-//     }
-
-//     // Create the database
-//     await pool.query(`CREATE DATABASE "${dbName}"`);
-
-//     // Save the database information in the `user_databases` table
-//     await pool.query(
-//       'INSERT INTO user_databases (user_id, db_name) VALUES ($1, $2)',
-//       [req.user.id, dbName]
-//     );
-
-//     res.status(201).json({ message: `Database "${dbName}" created successfully!` });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Error creating database' });
-//   }
-// };
-
-// // Function to list all databases for the user
-// const listDatabases = async (req, res) => {
-//   try {
-//     const result = await pool.query('SELECT db_name FROM user_databases WHERE user_id = $1', [
-//       req.user.id,
-//     ]);
-//     res.status(200).json(result.rows);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Error fetching databases' });
-//   }
-// };
-
-// // Function to execute queries on a specific database
-// const executeQueryOnDatabase = async (req, res) => {
-//   const { dbName, query } = req.body;
-
-//   try {
-//     // Validate database name
-//     if (!validateDatabaseName(dbName)) {
-//       return res.status(400).json({ error: 'Invalid database name' });
-//     }
-
-//     // Create a new connection pool for the target database
-//     const dbPool = new Pool({
-//       user: process.env.DB_USER,
-//       host: process.env.DB_HOST,
-//       database: dbName, // Connect to the specified database
-//       password: process.env.DB_PASSWORD,
-//       port: process.env.DB_PORT,
-//     });
-
-//     const result = await dbPool.query(query);
-//     dbPool.end(); // Close the connection pool after execution
-
-//     res.status(200).json(result.rows);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Error executing query' });
-//   }
-// };
-
-// module.exports = { createDatabase, listDatabases, executeQueryOnDatabase };
-
-
-
-
+// databaseController.js
 
 const { Pool } = require('pg');
 const pool = require('../config/db'); // Main database connection
@@ -106,7 +17,7 @@ const createDatabase = async (req, res) => {
       return res.status(400).json({ error: 'Invalid database name' });
     }
 
-    // Check if the database already exists for the user
+    // Check if the database  for the user
     const existingDb = await pool.query(
       'SELECT * FROM user_databases WHERE user_id = $1 AND db_name = $2',
       [req.user.id, dbName]

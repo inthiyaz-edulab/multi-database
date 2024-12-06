@@ -1,20 +1,3 @@
-// // app.js
-
-// const express = require('express');
-// const app = express();
-// const authRoutes = require('./routes/authRoutes'); // Ensure this path is correct
-
-// app.use(express.json()); // To parse JSON request bodies
-
-// // Use the routes
-// app.use('/api/auth', authRoutes); // This means the /register route will be accessible via /api/auth/register
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
-
-
 // app.js
 const express = require('express');
 const app = express();
