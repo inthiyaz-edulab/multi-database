@@ -73,11 +73,11 @@ frontend/
 ### Steps
 1. Clone the repository:
 
-`git clone <repository-url>
-cd backend`
+```git clone <repository-url>
+cd backend
 2. Install dependencies:
 
-`npm install`
+```npm install
 3. Create a .env file in the backend directory and add the following:
 
 ```DB_USER=<your_database_user>
@@ -90,8 +90,8 @@ PORT=5000
 
 4. Start the PostgreSQL server and create the main database (if not already created):
 
-`CREATE DATABASE <your_main_database_name>;`
+```CREATE DATABASE <your_main_database_name>;
 5. Start the backend server:
 
-`npm start`
-6. The backend will run at `http://localhost:5000`.
+```npm start
+6. The backend will run at `http://localhost:5000`
