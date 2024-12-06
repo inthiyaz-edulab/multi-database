@@ -28,3 +28,38 @@ This application allows users to:
 - React.js (Frontend framework)
 - Axios (HTTP client for API requests)
 - React Router (Routing for the React app)
+
+
+## Project Structure
+### Backend Structure
+
+backend/
+├── src/
+│   ├── config/
+│   │   └── db.js          # Database connection and initialization
+│   ├── controllers/
+│   │   ├── authController.js       # Handles user registration/login
+│   │   └── databaseController.js   # Handles database creation, listing, and querying
+│   ├── middlewares/
+│   │   └── authMiddleware.js       # JWT authentication middleware
+│   ├── routes/
+│   │   ├── authRoutes.js           # Auth-related API endpoints
+│   │   └── databaseRoutes.js       # Database-related API endpoints
+│   └── app.js                      # Main server file
+├── .env                             # Environment variables
+└── package.json                     # Backend dependencies
+### Frontend Structure
+
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── Login.js          # Login form
+│   │   ├── Register.js       # Registration form
+│   │   ├── Dashboard.js      # Main dashboard for database management
+│   │   └── DatabaseManager.js # Create, list, and query databases
+│   ├── services/
+│   │   └── api.js            # Axios configuration for API requests
+│   ├── App.js                # Main app component
+│   └── index.js              # React entry point
+├── .env                       # Frontend environment variables
+└── package.json               # Frontend dependencies
