@@ -63,3 +63,34 @@ frontend/
 │   └── index.js              # React entry point
 ├── .env                       # Frontend environment variables
 └── package.json               # Frontend dependencies
+
+
+## Getting Started
+1. Backend Setup
+### Prerequisites
+- Node.js (v14+)
+- PostgreSQL (v12+)
+### Steps
+1. Clone the repository:
+
+`git clone <repository-url>
+cd backend`
+2. Install dependencies:
+
+`npm install`
+3. Create a .env file in the backend directory and add the following:
+
+`DB_USER=<your_database_user>
+DB_PASSWORD=<your_database_password>
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=<your_main_database_name>
+JWT_SECRET=<your_jwt_secret>
+PORT=5000`
+4. Start the PostgreSQL server and create the main database (if not already created):
+
+`CREATE DATABASE <your_main_database_name>;`
+5. Start the backend server:
+
+`npm start`
+6. The backend will run at `http://localhost:5000`.
