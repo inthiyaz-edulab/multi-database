@@ -1,0 +1,95 @@
+/* Dashboard.css */
+
+/* General container for the dashboard */
+.dashboard-container {
+    background-color: #f4f6f9;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Title of the dashboard */
+  .dashboard-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Create Database container styling */
+  .create-database-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Input field styling for the Create Database component */
+  .create-database-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Button styling for Create Database */
+  .create-database-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-database-container button:hover {
+    background-color: #45a049;
+  }
+  
+  /* List Databases section styling */
+  .list-databases-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* List of databases styling */
+  .list-databases-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list-databases-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.2rem;
+  }
+  
+  .list-databases-container li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Hover effect for the list items */
+  .list-databases-container li:hover {
+    background-color: #f4f6f9;
+    cursor: pointer;
+  }
+  

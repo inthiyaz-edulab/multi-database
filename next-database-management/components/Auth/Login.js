@@ -1,23 +1,22 @@
-// Login.js
+'use client';
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../api';
-import './Login.css'; // Import the CSS file
+import { useRouter } from 'next/navigation';
+import { loginUser } from '@/lib/api';
+import './Login.css'; // Ensure the CSS file is in the same directory
 
-const Login = ({ setLoggedIn }) => {
+export default function Login() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize the navigate function
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await loginUser(formData);
-      localStorage.setItem('token', data.token); // Store the token
-      setLoggedIn(true); // Update the logged-in state
-      setError('');
-      navigate('/dashboard'); // Navigate to the dashboard
+      localStorage.setItem('token', data.token); // Save token to localStorage
+      setError(''); // Clear any previous errors
+      router.push('/dashboard'); // Navigate to the dashboard page
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Check your credentials.');
     }
@@ -52,6 +51,4 @@ const Login = ({ setLoggedIn }) => {
       </form>
     </div>
   );
-};
-
-export default Login;
+}

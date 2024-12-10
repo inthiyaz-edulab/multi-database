@@ -1,33 +1,35 @@
-// Login.js
+'use client';
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../api';
-import './Login.css'; // Import the CSS file
+import { useRouter } from 'next/navigation';
+import { registerUser } from '@/lib/api';
+import './Register.css'; // Ensure the CSS file is in the same directory
 
-const Login = ({ setLoggedIn }) => {
+export default function Register() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize the navigate function
+  const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await loginUser(formData);
-      localStorage.setItem('token', data.token); // Store the token
-      setLoggedIn(true); // Update the logged-in state
-      setError('');
-      navigate('/dashboard'); // Navigate to the dashboard
+      const response = await registerUser(formData); // Call the API function
+      setSuccess(true); // Show success message
+      setError(''); // Clear any previous errors
+      setTimeout(() => router.push('/login'), 2000); // Redirect to login page
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Check your credentials.');
+      setError('Registration failed. Please try again.'); // Display error
+      setSuccess(false); // Reset success flag
     }
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-title">Login</h2>
+    <div className="register-container">
+      <h2 className="register-title">Register</h2>
+      {success && <p className="success-message">Registration successful! Redirecting...</p>}
       {error && <p className="error-message">{error}</p>}
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="register-form" onSubmit={handleSubmit}>
         <div className="input-group">
           <input
             type="text"
@@ -48,10 +50,8 @@ const Login = ({ setLoggedIn }) => {
             className="input-field"
           />
         </div>
-        <button type="submit" className="submit-btn">Login</button>
+        <button type="submit" className="submit-btn">Register</button>
       </form>
     </div>
   );
-};
-
-export default Login;
+}
